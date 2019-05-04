@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import whiskey from "./images/whiskey.jpg"
-import hazel from "./images/hazel.jpg";
-import tubby from "./images/tubby.jpg";
-import './App.css';
-import {Switch, Route} from 'react-router-dom';
 import NavBar from './NavBar'
 import DogList from './DogList'
 import Dog from './Dog'
+import './App.css';
+import {Switch, Route} from 'react-router-dom';
+
+import whiskey from "./images/whiskey.jpg"
+import hazel from "./images/hazel.jpg";
+import tubby from "./images/tubby.jpg";
+
+
 
 class App extends Component {
   static defaultProps = {
@@ -48,7 +51,7 @@ class App extends Component {
 
   return (
     <div className="App">
-        <Route path="/dogs" render={() => <h1 className="display-1"> Dog List</h1>} /> 
+        <Route path="/dogs" render={() => <DogList dogs={this.props.dogs} />} /> 
     </div>
   );
   }
