@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar'
 import DogList from './DogList'
-import Dog from './Dog'
+import DogDetails from './DogDetails'
 import './App.css';
 import {Switch, Route} from 'react-router-dom';
 
@@ -31,7 +31,9 @@ class App extends Component {
         facts: [
           "Hazel has soooo much energy!",
           "Hazel is highly intelligent.",
-          "Hazel loves people more than dogs."
+          "Hazel loves people more than dogs.",
+          "Hazel loves licking Nicole.",
+          "Hazel loves biting Igor."
         ]
       },
       {
@@ -48,10 +50,23 @@ class App extends Component {
   } 
 
   render() {
+    //gets all the props and extracts the desired dog, which is returned inside the Dog component
+    const getDog = props => {
+      let name = props.match.params.name
+      let currentDog = this.props.dogs.find(
+        dog => dog.name.toLowerCase() === name.toLowerCase()
+        );
+      console.log(currentDog);
+      return <DogDetails {...props} dog={currentDog} />
+    }
 
   return (
     <div className="App">
-        <Route path="/dogs" render={() => <DogList dogs={this.props.dogs} />} /> 
+    <Switch>
+        <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs} />} /> 
+        <Route exact path="/dogs/:name" render={getDog} /> 
+      </Switch>
+
     </div>
   );
   }

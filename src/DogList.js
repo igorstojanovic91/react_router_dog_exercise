@@ -1,11 +1,25 @@
 import React, { Component } from 'react'
 import './DogList.css'
+import {Route, Link} from 'react-router-dom';
+import DogDetails from './DogDetails'
 
 class DogList extends Component {
+    constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick(evt) {
+        console.log("Got here", evt.target.id)
+        console.log(evt)
+        console.log(evt.target.id)
+        console.log(evt.target.name)
+
+    }
   render() {
-      const dog = this.props.dogs.map(dog => {
+      const dogs = this.props.dogs
+      const dog = dogs.map(dog => {
           return (
-              <div className="Dog col-lg-4">
+              <div className="Dog col-lg-4" key={`${dog.name}-${dog.age}`} name={`${dog.name}-${dog.age}`} onClick={this.handleClick}>
                     <img src={dog.src} className="rounded-circle" />
                     <p>{dog.name}</p>
             </div>
