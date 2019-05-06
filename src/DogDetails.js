@@ -18,9 +18,8 @@ import './DogDetails.css'
 
 
     return (
-      <div className="container">
-      <div className="DogDetail row justify-content-center mt-5">
-        <div className="card col-11 col-lg-5 px-0">
+      <div className="DogDetail row justify-content-center my-5">
+        <div className="DogDetail-card card col-11 col-lg-5 px-0">
             <img className="card-img-top" src={img} alt={name} />
             <div className="card-body">
               <h5 className="card-title">{name}</h5>
@@ -33,7 +32,6 @@ import './DogDetails.css'
               <Link to="/dogs" className="btn btn-info">Back </Link>
             </div>
       </div>
-    </div>
     </div>
     )
   }
