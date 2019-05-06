@@ -11,7 +11,7 @@ export default class Routes extends Component {
         let currentDog = this.props.dogs.find(
           dog => dog.name.toLowerCase() === name.toLowerCase()
           );
-        console.log(currentDog);
+        
         if (currentDog) {
             return <DogDetails {...props} dog={currentDog} />
         } else {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './DogDetails.css'
 
  class DogDetails extends Component {
@@ -9,9 +9,9 @@ import './DogDetails.css'
       const img = this.props.dog.src
       const name = this.props.dog.name
       const age = this.props.dog.age
-      const facts = this.props.dog.facts.map(fact => {
+      const facts = this.props.dog.facts.map((fact, i) => {
         return (
-          <li className="list-group-item">{fact}</li>
+          <li className="list-group-item" key={`${fact}-${i}`}>{fact}</li>
         )
       })
     
