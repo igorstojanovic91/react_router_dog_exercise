@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import './DogDetails.css'
 
  class DogDetails extends Component {
 
   render() {
+
       const img = this.props.dog.src
       const name = this.props.dog.name
       const age = this.props.dog.age
@@ -13,6 +14,8 @@ import './DogDetails.css'
           <li className="list-group-item">{fact}</li>
         )
       })
+    
+
 
     return (
       <div className="container">

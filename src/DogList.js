@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import './DogList.css'
-import {Route, Link} from 'react-router-dom';
-import DogDetails from './DogDetails'
 
 class DogList extends Component {
     constructor(props) {
